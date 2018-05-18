@@ -27,24 +27,19 @@ public class CadastroCliente {
     int atual = 0;
 
     public void cadastrar() {
-        nomes[atual] = JOptionPane.showInputDialog("Digite seu nome");
-        sobrenomes[atual] = JOptionPane.showInputDialog("Digite seu sobrenome");
-        idades[atual] = Integer.parseInt(JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite sua idade"));
-        sexos[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu sexo").charAt(0);
-        cpfs[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu CPF").replace(".", "").replace("-", "");
-        estados[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu estado").trim().toUpperCase();
-        cidades[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite sua cidade");
-        logradouros[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu logradouro");
-        bairros[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu bairro");
-        ceps[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu cep");
-        numeros[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu numero");
-        complementos[atual] = JOptionPane.showInputDialog(nomes[atual] + ", " + "Digite seu complemento");
+        solicitarInformacao(atual);
         atual++;
 
     }
 
     public void editar() {
-        // TODO implementar a edição do cliente
+        String busca = JOptionPane.showInputDialog("Digite o nome para editar");
+        for (int i = 0; i < atual; i++) {
+            if (nomes[i].equals(busca)) {
+                solicitarInformacao(atual);
+            }
+            
+        }
     }
 
     public void buscarPeloNome() {
@@ -98,5 +93,20 @@ public class CadastroCliente {
                         + "\nNúmero: " + numeros[i]
                         + "\nComplemento: " + complementos[i]
         );
+    }
+
+    private void solicitarInformacao(int posicao) {
+        nomes[posicao] = JOptionPane.showInputDialog("Digite seu nome");
+        sobrenomes[posicao] = JOptionPane.showInputDialog("Digite seu sobrenome");
+        idades[posicao] = Integer.parseInt(JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite sua idade"));
+        sexos[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu sexo").charAt(0);
+        cpfs[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu CPF").replace(".", "").replace("-", "");
+        estados[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu estado").trim().toUpperCase();
+        cidades[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite sua cidade");
+        logradouros[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu logradouro");
+        bairros[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu bairro");
+        ceps[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu cep");
+        numeros[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu numero");
+        complementos[posicao] = JOptionPane.showInputDialog(nomes[posicao] + ", " + "Digite seu complemento");
     }
 }
